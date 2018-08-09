@@ -26,12 +26,16 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<!--指定mybatis全局配置文件的位置 -->
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
-		<!--指定mybatis的mapper文件的位置 -->
-		<!-- <property name="mapperLocations" value="com.taotao.mapper"></property> -->
 	</bean>
 
+	<!--指定mybatis的mapper文件的位置 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.taotao.mapper"></property>
 	</bean>
 
+	<!--配置一个可以执行批量的sqlsesson -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg name="executorType" value="BATCH"></constructor-arg>
+	</bean>
 </beans>
