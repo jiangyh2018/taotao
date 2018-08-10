@@ -23,9 +23,18 @@
 	<mvc:resources location="/js/" mapping="/js/**" />
 
 	<!-- 引用dubbo服务 -->
-	<dubbo:application name="taotao-manager-web" />
+	<!-- <dubbo:application name="taotao-manager-web" />
 	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
 	<dubbo:reference interface="com.taotao.service.ItemService"
-		id="itemService" />
+		id="itemService" /> -->
+		
+	<!-- dubbo直连-->
+	<!-- 服务消费方 名称 -->
+	<dubbo:application name="taotao-manager-web" />
+	<dubbo:registry address="N/A" />
+	 <dubbo:reference interface="com.taotao.service.ItemService"
+		id="itemService" url="127.0.0.1:20880" />
+	<!-- 使用debug跑 所以连接超时 我这里使用10分钟 启动时不校验服务提供方 -->
+	<dubbo:consumer timeout="600000" check="false" />
 
 </beans>      
