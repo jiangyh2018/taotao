@@ -1,4 +1,4 @@
-package com.jah.common;
+package com.taotao.common;
 
 import java.io.Serializable;
 import java.util.List;
