@@ -1,10 +1,11 @@
 package com.taotao.service;
 
-import com.jah.common.EasyUIDataGridResult;
+import com.taotao.common.EasyUIDataGridResult;
 import com.taotao.pojo.TbItem;
 
 public interface ItemService {
-	TbItem getItemById(long id);
+    TbItem getItemById(long id);
 
-	EasyUIDataGridResult getAllItem(int pageNum,int pageSize); 
+    EasyUIDataGridResult getAllItem(Integer pageNum, Integer pageSize);
+
 }

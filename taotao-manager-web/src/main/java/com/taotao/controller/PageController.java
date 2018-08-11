@@ -14,7 +14,6 @@ public class PageController {
 	
 	@RequestMapping("/{page}")
 	public String toPage(@PathVariable String page){
-//		System.out.println("page: "+page);
 		return page;
 	}
 }

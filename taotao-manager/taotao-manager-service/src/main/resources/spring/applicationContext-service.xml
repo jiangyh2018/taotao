@@ -30,4 +30,5 @@
 	<dubbo:protocol host="127.0.0.1" port="20880"/>
 	<!-- 暴露接口 -->
 	 <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl"/>
+	 <dubbo:service interface="com.taotao.service.ItemCatService" ref="itemCatServiceImpl"/>
 </beans>
