@@ -1,8 +1,7 @@
 package com.taotao.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @program: taotao
@@ -15,7 +14,11 @@ public class UploadController {
 
 
     @RequestMapping(value = "/pic/upload",method = RequestMethod.POST)
-    public String upload(){
+    @ResponseBody
+    public String upload(@RequestBody(required = false) String name, @ModelAttribute String str){
+
+        System.out.println("name = [" + name + "]");
+        System.out.println("str = [" + str + "]");
 
         return null;
     }
