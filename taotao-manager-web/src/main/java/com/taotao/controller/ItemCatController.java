@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author jiangah
+ * @author x1C
  */
 @Controller
 @RequestMapping("/item")
@@ -24,7 +24,7 @@ public class ItemCatController {
 
     @RequestMapping(value = "/cat/list", method = RequestMethod.POST)
     @ResponseBody
-    public List<EasyUITreeNode> getContentTree(@RequestParam(value = "id", required = false, defaultValue = "0") Long parentId) {
+    public List<EasyUITreeNode> getContentTree(@RequestParam(value = "id", defaultValue = "0") Long parentId) {
         List<TbItemCat> itemCats = itemCatServiceService.getItemCatByParentId(parentId);
         EasyUITreeNode easyUITreeNode;
         List<EasyUITreeNode> easyUITreeNodes = new ArrayList<>();
