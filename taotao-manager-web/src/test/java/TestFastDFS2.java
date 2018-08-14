@@ -13,7 +13,7 @@ public class TestFastDFS2 {
     public void testUploadFile()throws Exception{
 //        ClientGlobal.init("classpath:resource/FastDFSClient.conf");
 
-        ClientGlobal.init("D:\\IT\\myProject\\taotao\\taotao-manager-web\\src\\main\\resources\\resource\\FastDFSClient.conf");
+       ClientGlobal.init("D:\\IT\\myProject\\taotao\\taotao-manager-web\\src\\main\\resources\\resource\\FastDFSClient.conf");
 
         TrackerClient trackerClient=new TrackerClient();
         TrackerServer trackerServer=trackerClient.getConnection();
@@ -26,5 +26,4 @@ public class TestFastDFS2 {
             System.out.println(str);
         }
     }
-
 }
