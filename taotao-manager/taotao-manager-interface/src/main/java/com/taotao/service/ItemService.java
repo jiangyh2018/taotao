@@ -1,6 +1,7 @@
 package com.taotao.service;
 
 import com.taotao.common.EasyUIDataGridResult;
+import com.taotao.common.TaotaoResult;
 import com.taotao.pojo.TbItem;
 
 public interface ItemService {
@@ -8,4 +9,5 @@ public interface ItemService {
 
     EasyUIDataGridResult getAllItem(Integer pageNum, Integer pageSize);
 
+    TaotaoResult save(TbItem tbItem, String desc);
 }

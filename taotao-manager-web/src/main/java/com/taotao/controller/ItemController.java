@@ -1,6 +1,7 @@
 package com.taotao.controller;
 
 import com.taotao.common.EasyUIDataGridResult;
+import com.taotao.common.TaotaoResult;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ItemController {
     @Autowired
     private ItemService itemService;
+
+    /**
+     * 添加商品信息
+     */
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @ResponseBody
+    public TaotaoResult saveItem(TbItem tbItem, String desc) {
+        return itemService.save(tbItem,desc);
+    }
 
     /**
      * 根据id查询TbItem

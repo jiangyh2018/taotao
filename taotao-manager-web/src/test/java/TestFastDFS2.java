@@ -1,5 +1,4 @@
 import org.csource.fastdfs.*;
-import org.junit.Test;
 
 /**
  * @program: taotao
@@ -9,7 +8,6 @@ import org.junit.Test;
  **/
 public class TestFastDFS2 {
 
-    @Test
     public void testUploadFile()throws Exception{
 //        ClientGlobal.init("classpath:resource/FastDFSClient.conf");
 
