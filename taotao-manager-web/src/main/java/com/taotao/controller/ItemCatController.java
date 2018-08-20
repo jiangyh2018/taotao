@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/** 选择类目树形图
  * @author x1C
  */
 @Controller

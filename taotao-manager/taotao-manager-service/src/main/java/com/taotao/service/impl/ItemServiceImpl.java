@@ -40,10 +40,10 @@ public class ItemServiceImpl implements ItemService {
     public EasyUIDataGridResult getAllItem(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<TbItem> list = itemMapper.selectByExample(new TbItemExample());
-        System.out.println("list: " + list.size());
+//        System.out.println("list: " + list.size());
         PageInfo pageInfo = new PageInfo<>(list);
-        System.out.println("list: " + list.size());
-        System.out.println("pageInfo: " + pageInfo);
+//        System.out.println("list: " + list.size());
+//        System.out.println("pageInfo: " + pageInfo);
         return new EasyUIDataGridResult(pageInfo.getTotal(), pageInfo.getList());
     }
 
