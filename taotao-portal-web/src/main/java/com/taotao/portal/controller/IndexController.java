@@ -2,7 +2,7 @@ package com.taotao.portal.controller;
 
 import com.taotao.common.JsonUtils;
 import com.taotao.content.service.ContentService;
-import com.taotao.pojo.Ad1Node;
+import com.taotao.portal.pojo.Ad1Node;
 import com.taotao.pojo.TbContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +21,7 @@ import java.util.List;
 @Controller
 public class IndexController {
     @Value("${AD1_CID}")
-    private String AD1_CID;
+    private Long AD1_CID;
     @Value("${AD1_HEIGHT}")
     private String AD1_HEIGHT;
     @Value("${AD1_WIDTH}")
@@ -36,7 +36,7 @@ public class IndexController {
 
     @RequestMapping(value = "index")
     public String toIndex(Model model) {
-        List<TbContent> contentList = contentService.getContentByCategoryId(Long.parseLong(AD1_CID));
+        List<TbContent> contentList = contentService.getContentByCategoryId(AD1_CID);
         List<Ad1Node> nodeList=new ArrayList<>();
         Ad1Node node=null;
         for (TbContent tbContent: contentList) {

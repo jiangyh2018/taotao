@@ -1,4 +1,4 @@
-package com.taotao.pojo;
+package com.taotao.portal.pojo;
 
 /**
  * @description: 首页大广告pojo

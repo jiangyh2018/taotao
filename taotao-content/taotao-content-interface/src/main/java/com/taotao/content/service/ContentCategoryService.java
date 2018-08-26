@@ -16,4 +16,7 @@ public interface ContentCategoryService {
 
     TaotaoResult add(Long parentId, String name);
 
+    void update(Long id, String name);
+
+    void deleteCategory(Long id);
 }

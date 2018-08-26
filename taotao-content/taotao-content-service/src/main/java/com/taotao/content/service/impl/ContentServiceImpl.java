@@ -3,6 +3,7 @@ package com.taotao.content.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.EasyUIDataGridResult;
+import com.taotao.common.TaotaoResult;
 import com.taotao.content.service.ContentService;
 import com.taotao.mapper.TbContentMapper;
 import com.taotao.pojo.TbContent;
@@ -10,6 +11,7 @@ import com.taotao.pojo.TbContentExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,6 +26,25 @@ public class ContentServiceImpl implements ContentService {
 
     @Autowired
     private TbContentMapper tbContentMapper;
+
+    @Override
+    public TaotaoResult delete(List<Long> idList) {
+        for (Long id : idList) {
+            tbContentMapper.deleteByPrimaryKey(id);
+        }
+
+        return TaotaoResult.ok();
+    }
+
+    @Override
+    public TaotaoResult save(TbContent tbContent) {
+        tbContent.setCreated(new Date());
+        tbContent.setUpdated(new Date());
+
+        tbContentMapper.insertSelective(tbContent);
+
+        return TaotaoResult.ok();
+    }
 
     @Override
     public List<TbContent> getContentByCategoryId(Long id) {

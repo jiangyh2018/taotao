@@ -25,6 +25,25 @@ public class ContentCategoryController {
     @Autowired
     private ContentCategoryService contentCategoryService;
 
+    /** 删除所选的类目及子类目
+     * @param id
+     */
+    @RequestMapping(value = "/content/category/delete",method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteCategory(@RequestParam(value = "id") Long id){
+        contentCategoryService.deleteCategory(id);
+    }
+
+    /** 修改内容类目名称
+     * @param id
+     * @param name
+     */
+    @RequestMapping(value = "/content/category/update", method = RequestMethod.POST)
+    @ResponseBody
+    public void updateCategory(@RequestParam(value = "id") Long id, @RequestParam(value = "name") String name) {
+        contentCategoryService.update(id,name);
+    }
+
     /**
      * 添加内容类目
      *
@@ -38,7 +57,7 @@ public class ContentCategoryController {
         TaotaoResult result = contentCategoryService.add(parentId, name);
         System.out.println("插入后返回的值：" + result);
 
-        return  result;
+        return result;
     }
 
     /**
