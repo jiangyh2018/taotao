@@ -31,4 +31,11 @@
 	<!-- 暴露接口 -->
 	 <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl"/>
 	 <dubbo:service interface="com.taotao.service.ItemCatService" ref="itemCatServiceImpl"/>
+
+	<!-- dubbo直连-->
+	<!-- 服务消费方 名称 -->
+	<dubbo:reference interface="com.taotao.search.service.SearchItemService"
+					 id="searchItemService" url="127.0.0.1:20882"/>
+	<!-- 使用debug跑 所以连接超时 我这里使用10分钟 启动时不校验服务提供方 -->
+	<dubbo:consumer timeout="600000" check="false"/>
 </beans>
