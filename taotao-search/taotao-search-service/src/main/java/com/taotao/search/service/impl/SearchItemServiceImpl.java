@@ -58,22 +58,23 @@ public class SearchItemServiceImpl implements SearchItemService {
         return TaotaoResult.ok();
     }
 
-    @Override
-    public TaotaoResult addItem(SearchItem searchItem) throws IOException, SolrServerException {
-        SolrInputDocument document = new SolrInputDocument();
-        // 为文档添加域
-        document.addField("id", searchItem.getId());
-        document.addField("item_title", searchItem.getTitle());
-        document.addField("item_sell_point", searchItem.getSell_point());
-        document.addField("item_price", searchItem.getPrice());
-        document.addField("item_image", searchItem.getImage());
-        document.addField("item_category_name", searchItem.getCategory_name());
-        document.addField("item_desc", searchItem.getItem_desc());
 
-        httpSolrServer.add(document);
-
-        httpSolrServer.commit();
-
-        return TaotaoResult.ok();
-    }
+//    @Override
+//    public TaotaoResult addItem(SearchItem searchItem) throws IOException, SolrServerException {
+//        SolrInputDocument document = new SolrInputDocument();
+//        // 为文档添加域
+//        document.addField("id", searchItem.getId());
+//        document.addField("item_title", searchItem.getTitle());
+//        document.addField("item_sell_point", searchItem.getSell_point());
+//        document.addField("item_price", searchItem.getPrice());
+//        document.addField("item_image", searchItem.getImage());
+//        document.addField("item_category_name", searchItem.getCategory_name());
+//        document.addField("item_desc", searchItem.getItem_desc());
+//
+//        httpSolrServer.add(document);
+//
+//        httpSolrServer.commit();
+//
+//        return TaotaoResult.ok();
+//    }
 }

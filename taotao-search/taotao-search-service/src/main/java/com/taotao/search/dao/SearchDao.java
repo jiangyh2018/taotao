@@ -48,7 +48,7 @@ public class SearchDao {
             }
             searchItem.setImage(images);
 
-            searchItem.setPrice((Long) solrDocument.get("item_price"));
+            searchItem.setPrice(Long.parseLong(String.valueOf(solrDocument.get("item_price"))));
             searchItem.setSell_point((String) solrDocument.get("item_sell_point"));
 
             //取高亮显示

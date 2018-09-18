@@ -3,22 +3,25 @@ package com.taotao.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.EasyUIDataGridResult;
-import com.taotao.common.SearchItem;
 import com.taotao.common.TaotaoResult;
 import com.taotao.mapper.TbItemCatMapper;
 import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
-import com.taotao.pojo.TbItemCat;
 import com.taotao.pojo.TbItemDesc;
 import com.taotao.pojo.TbItemExample;
-import com.taotao.search.service.SearchItemService;
 import com.taotao.service.ItemService;
-import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
+import javax.annotation.Resource;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+import javax.jms.TextMessage;
 import java.util.Date;
 import java.util.List;
 
@@ -32,8 +35,12 @@ public class ItemServiceImpl implements ItemService {
     private TbItemMapper itemMapper;
     @Autowired
     private TbItemDescMapper itemDescMapper;
+    //    @Autowired
+//    private SearchItemService searchItemServiceService;
     @Autowired
-    private SearchItemService searchItemServiceService;
+    private JmsTemplate jmsTemplate;
+    @Resource(name = "topicDestination")
+    private ActiveMQTopic topic;
 
     @Override
     public TbItem getItemById(long id) {
@@ -77,24 +84,26 @@ public class ItemServiceImpl implements ItemService {
         itemDescMapper.insertSelective(itemDesc);
 
         //新增商品，同时添加到solr索引库中
-        SearchItem searchItem = new SearchItem();
-        searchItem.setId(String.valueOf(tbItem.getId()));
-        searchItem.setTitle(tbItem.getTitle());
-        searchItem.setSell_point(tbItem.getSellPoint());
-        searchItem.setPrice(tbItem.getPrice());
-        searchItem.setImage(tbItem.getImage());
-        //由cid获取categryName
-        TbItemCat tbItemCat = tbItemCatMapper.selectByPrimaryKey(tbItem.getCid());
-        searchItem.setCategory_name(tbItemCat.getName());
-        searchItem.setItem_desc(desc);
+//        SearchItem searchItem = new SearchItem();
+//        searchItem.setId(String.valueOf(tbItem.getId()));
+//        searchItem.setTitle(tbItem.getTitle());
+//        searchItem.setSell_point(tbItem.getSellPoint());
+//        searchItem.setPrice(tbItem.getPrice());
+//        searchItem.setImage(tbItem.getImage());
+//        //由cid获取categryName
+//        TbItemCat tbItemCat = tbItemCatMapper.selectByPrimaryKey(tbItem.getCid());
+//        searchItem.setCategory_name(tbItemCat.getName());
+//        searchItem.setItem_desc(desc);
 
-        try {
-            searchItemServiceService.addItem(searchItem);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SolrServerException e) {
-            e.printStackTrace();
-        }
+//            searchItemServiceService.addItem(searchItem);
+        //将商品ID发送到消息队列中
+        jmsTemplate.send(topic, new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                TextMessage textMessage = session.createTextMessage(String.valueOf(tbItem.getId()));
+                return textMessage;
+            }
+        });
 
         return TaotaoResult.ok();
     }

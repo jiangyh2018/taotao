@@ -1,10 +1,6 @@
 package com.taotao.search.service;
 
-import com.taotao.common.SearchItem;
 import com.taotao.common.TaotaoResult;
-import org.apache.solr.client.solrj.SolrServerException;
-
-import java.io.IOException;
 
 /**
  * @description:
@@ -15,5 +11,5 @@ public interface SearchItemService {
 
     TaotaoResult importAllItem() throws Exception;
 
-    TaotaoResult addItem(SearchItem searchItem) throws IOException, SolrServerException;
+//    TaotaoResult addItem(SearchItem searchItem) throws IOException, SolrServerException;
 }

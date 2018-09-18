@@ -10,4 +10,12 @@
         where a.status='1'
     </select>
 
+    <select id="getItemById" parameterType="long" resultType="com.taotao.common.SearchItem">
+        select a.id,a.title,a.sell_point,a.price,a.image,b.name as category_name,c.item_desc
+        from tb_item a
+        left join tb_item_cat b on a.cid=b.id
+        left join tb_item_desc c on a.id=c.item_id
+        where a.status='1' and a.id=#{itemId}
+    </select>
+
 </mapper>
