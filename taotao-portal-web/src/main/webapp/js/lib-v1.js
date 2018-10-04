@@ -1513,10 +1513,10 @@ var $o = function() {
 //                    if (!y)
 //                        continue;
 //                    if (0 == i) {
-//                        if ("string" == typeof y && /^[1-8]4$/.test(y))
+//                        if ("string" == typeof y && /^[1-8]4$/.demo(y))
 //                            continue
 //                    } else if (5 == i) {
-//                        if ("string" == typeof y && !/^[5-8]2$/.test(y))
+//                        if ("string" == typeof y && !/^[5-8]2$/.demo(y))
 //                            continue
 //                    } else if (1 == i || 2 == i || 3 == i || 4 == i)
 //                        continue;

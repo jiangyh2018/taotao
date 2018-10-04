@@ -288,8 +288,8 @@ ABTest.prototype = {test: function() {
         return "string" != typeof t && (t += ""), t ? (e = this.getHashProbability(t, this.base), i > e ? (this.version.A++, this.result.A.push(t), "A") : e >= i && 2 * i > e ? (this.version.B++, this.result.B.push(t), "B") : (this.version.N++, this.result.N.push(t), "NONE")) : (version.N++, this.result.N.push(t), "NONE")
     },switchVersion: function(t) {
         if (!t || !/A|B|N/.test(t))
-            return console.warn("Are you kidding me~ Is there a test version called " + t + "?"), !1;
-        this.tested || console.warn("Please run test method first.");
+            return console.warn("Are you kidding me~ Is there a demo version called " + t + "?"), !1;
+        this.tested || console.warn("Please run demo method first.");
         var e = this.result[t], i = e[Math.floor(Math.random() * e.length)];
         createCookie("__jda", "122270672." + i + ".043878.1386043878.1386043878.1", 10, "/;domain=jd.com"), console.log(i)
     },getHashProbability: function(t, e) {

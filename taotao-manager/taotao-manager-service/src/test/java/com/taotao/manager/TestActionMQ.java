@@ -26,7 +26,7 @@ public class TestActionMQ {
 //      第四步：使用Connection对象创建一个Session对象。
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 //      第五步：使用Session对象创建一个Destination对象（topic、queue），此处创建一个Queue对象。
-        Queue queue = session.createQueue("test-queue");
+        Queue queue = session.createQueue("demo-queue");
 //      第六步：使用Session对象创建一个Producer对象。
         MessageProducer producer = session.createProducer(queue);
 //      第七步：创建一个Message对象，创建一个TextMessage对象。
@@ -53,7 +53,7 @@ public class TestActionMQ {
 //      第四步：使用Connection对象创建一个Session对象。
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 //      第五步：使用Session对象创建一个Destination对象。和发送端保持一致queue，并且队列的名称一致。
-        Queue queue = session.createQueue("test-queue");
+        Queue queue = session.createQueue("demo-queue");
 //      第六步：使用Session对象创建一个Consumer对象。
         MessageConsumer consumer = session.createConsumer(queue);
 //      第七步：接收消息。
@@ -84,7 +84,7 @@ public class TestActionMQ {
         connection.start();
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         //创建Destination
-        Topic topic = session.createTopic("test-topic");
+        Topic topic = session.createTopic("demo-topic");
         //创建Produce的对象
         MessageProducer producer = session.createProducer(topic);
         //创建消息
@@ -107,7 +107,7 @@ public class TestActionMQ {
         connection.start();
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         //创建Destination
-        Topic topic = session.createTopic("test-topic");
+        Topic topic = session.createTopic("demo-topic");
         //创建Consumer
         MessageConsumer consumer = session.createConsumer(topic);
         //接收消息
@@ -141,7 +141,7 @@ public class TestActionMQ {
         connection.start();
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         //创建Destination
-        Topic topic = session.createTopic("test-topic");
+        Topic topic = session.createTopic("demo-topic");
         //创建Consumer
         MessageConsumer consumer = session.createConsumer(topic);
         //接收消息

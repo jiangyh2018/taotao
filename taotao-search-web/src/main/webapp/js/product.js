@@ -801,7 +801,7 @@ var Recommend = {init: function(t) {
 //                "undefined" != typeof Suits && Suits.init(G.sku)
 //            }}) : $.ajax({url: "http://pi.3.cn/suitinfo/get",data: {id: G.sku,origin: 1},dataType: "script",cache: !0,scriptCharset: "utf-8"})
     },renderRecoFittingsHTML: function() {
-//        var t = G.sku, e = 6728 == G.cat[0] || 653 == G.cat[1] || 830 == G.cat[1], i = "-672-6864-1105-717-720-718-719-798-", s = RegExp("-" + G.cat[2] + "-").test(i);
+//        var t = G.sku, e = 6728 == G.cat[0] || 653 == G.cat[1] || 830 == G.cat[1], i = "-672-6864-1105-717-720-718-719-798-", s = RegExp("-" + G.cat[2] + "-").demo(i);
 //        return !G.isJd && e ? !1 : (655 == G.cat[2] ? $.ajax({url: "http://rs.jd.com/accessorie/newServiceWhite.jsonp?sku=" + G.sku + "&callback=Recommend.cbNewFittings",dataType: "script",cache: !0,scriptCharset: "utf-8"}) : 830 == G.cat[1] ? $.ajax({url: "http://rs.jd.com/accessorie/accessoryByAccessory.jsonp?sku=" + G.sku + "&callback=Recommend.cbNewFittings",dataType: "script",cache: !0,scriptCharset: "utf-8"}) : G.cat[2] > 830 && 835 > G.cat[2] || 5012 === G.cat[2] ? $.ajax({url: "http://misc.360buyimg.com/product/js/2012/fittingsCamera.js?ver=20140424",dataType: "script",cache: !0,success: function() {
 //                fittingsCamera.init(pageConfig.product.skuid, pageConfig.product.cat[2], 1)
 //            }}) : s ? $.ajax({url: "http://misc.360buyimg.com/product/js/2012/fittingsCamera.js?ver=20140424",dataType: "script",cache: !0,success: function() {
