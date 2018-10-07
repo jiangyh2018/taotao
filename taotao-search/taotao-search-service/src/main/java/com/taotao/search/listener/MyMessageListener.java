@@ -1,6 +1,6 @@
 package com.taotao.search.listener;
 
-import com.taotao.common.SearchItem;
+import com.taotao.common.pojo.SearchItem;
 import com.taotao.search.mapper.SearchItemMapper;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;

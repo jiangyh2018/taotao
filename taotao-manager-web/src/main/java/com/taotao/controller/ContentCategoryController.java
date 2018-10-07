@@ -5,8 +5,8 @@
  **/
 package com.taotao.controller;
 
-import com.taotao.common.EasyUITreeNode;
-import com.taotao.common.TaotaoResult;
+import com.taotao.common.pojo.EasyUITreeNode;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentCategoryService;
 import com.taotao.pojo.TbContentCategory;
 import org.springframework.beans.factory.annotation.Autowired;

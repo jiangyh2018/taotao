@@ -1,7 +1,7 @@
 package com.taotao.controller;
 
-import com.taotao.common.EasyUIDataGridResult;
-import com.taotao.common.TaotaoResult;
+import com.taotao.common.pojo.EasyUIDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.taotao.solr;
 
-import com.taotao.common.SearchResult;
+import com.taotao.common.pojo.SearchResult;
 import com.taotao.search.dao.SearchDao;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;

@@ -1,4 +1,4 @@
-package com.taotao.common;
+package com.taotao.common.pojo;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

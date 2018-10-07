@@ -1,8 +1,8 @@
 package com.taotao.search.service.impl;
 
-import com.taotao.common.TaotaoResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.search.mapper.SearchItemMapper;
-import com.taotao.common.SearchItem;
+import com.taotao.common.pojo.SearchItem;
 import com.taotao.search.service.SearchItemService;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;

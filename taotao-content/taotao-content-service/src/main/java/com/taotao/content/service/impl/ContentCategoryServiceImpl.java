@@ -5,7 +5,7 @@
  **/
 package com.taotao.content.service.impl;
 
-import com.taotao.common.TaotaoResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentCategoryService;
 import com.taotao.mapper.TbContentCategoryMapper;
 import com.taotao.pojo.TbContentCategory;

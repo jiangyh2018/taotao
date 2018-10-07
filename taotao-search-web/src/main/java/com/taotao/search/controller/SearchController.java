@@ -1,6 +1,6 @@
 package com.taotao.search.controller;
 
-import com.taotao.common.SearchResult;
+import com.taotao.common.pojo.SearchResult;
 import com.taotao.search.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

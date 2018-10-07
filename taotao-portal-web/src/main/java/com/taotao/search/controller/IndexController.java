@@ -1,6 +1,6 @@
 package com.taotao.search.controller;
 
-import com.taotao.common.JsonUtils;
+import com.taotao.common.utils.JsonUtils;
 import com.taotao.content.service.ContentService;
 import com.taotao.pojo.TbContent;
 import com.taotao.search.pojo.Ad1Node;

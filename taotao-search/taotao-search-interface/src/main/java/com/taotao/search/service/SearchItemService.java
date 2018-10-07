@@ -1,6 +1,6 @@
 package com.taotao.search.service;
 
-import com.taotao.common.TaotaoResult;
+import com.taotao.common.pojo.TaotaoResult;
 
 /**
  * @description:
