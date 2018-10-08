@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @description: 商品详情页面展示controller
- * @author:
- * @create: 2018-09-28 22:29
  **/
 @Controller
 public class ItemController {
@@ -21,8 +18,15 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    @RequestMapping(value = "/item/{itemId1}")
-    public String getItemById1(@PathVariable(value = "itemId1") long itemId, Model model) {
+    /**
+     * 展示商品详情：查询的redis，如没有就查询mysql数据库
+     *
+     * @param itemId
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/item/{itemId}")
+    public String getItemById(@PathVariable(value = "itemId") long itemId, Model model) {
         //跟据商品id查询商品信息
         TbItem tbItem = itemService.getItemById(itemId);
         //把TbItem转换成Item对象
@@ -37,10 +41,13 @@ public class ItemController {
 
         return "item";
     }
-    @RequestMapping(value = "/item/{itemId}")
-    public String getItemById(@PathVariable(value = "itemId") long itemId) {
-
-        return ""+itemId;
-    }
+    /**
+     * 展示商品详情：访问freemarker生成的静态页面
+     */
+//    @RequestMapping(value = "/item/{itemId}")
+//    public String getItemById(@PathVariable(value = "itemId") long itemId) {
+//
+//        return ""+itemId;
+//    }
 
 }

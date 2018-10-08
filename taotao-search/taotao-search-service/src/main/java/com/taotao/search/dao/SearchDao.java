@@ -43,12 +43,16 @@ public class SearchDao {
             searchItem.setCategory_name((String) solrDocument.get("item_category_name"));
             //图片URL处理一下，取第一个
             String images = (String) solrDocument.get("item_image");
-            if(StringUtils.isNotBlank(images)){
+            if (StringUtils.isNotBlank(images)) {
                 images = images.split(",")[0];
             }
             searchItem.setImage(images);
 
-            searchItem.setPrice(Long.parseLong(String.valueOf(solrDocument.get("item_price"))));
+            String price = String.valueOf(solrDocument.get("item_price"));
+            if (StringUtils.isBlank(price) || "null".equals(price)) {
+                price = "0";
+            }
+            searchItem.setPrice(Long.parseLong(price));
             searchItem.setSell_point((String) solrDocument.get("item_sell_point"));
 
             //取高亮显示

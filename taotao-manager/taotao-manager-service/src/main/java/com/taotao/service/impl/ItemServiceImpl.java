@@ -49,8 +49,6 @@ public class ItemServiceImpl implements ItemService {
     private ActiveMQTopic topic;
     @Autowired
     private JedisClient jedisClient;
-    @Resource(name = "topicDestination-item-web")
-    private ActiveMQTopic topicDestinationItemWeb;
 
     /**
      * 根据商品id查询商品信息
